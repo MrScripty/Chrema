@@ -6,7 +6,7 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
-import { barrelBytes, loadManifest, packageJsonBytes, repositoryRoot, safeRelative } from "../tools/build-standalone.mjs";
+import { barrelBytes, loadManifest, packageJsonBytes, repositoryRoot, safeRelative } from "./lib/build-packages.mjs";
 
 const execFile = promisify(execFileCallback);
 const digest = bytes => createHash("sha256").update(bytes).digest("hex");
@@ -72,7 +72,7 @@ function assertSecrets(path, bytes) {
 }
 
 function assertStaticClosure(paths, destination, bytes) {
-  if (!destination.endsWith(".mjs") || destination === "tools/build-standalone.mjs") return;
+  if (!destination.endsWith(".mjs") || destination === "scripts/lib/build-packages.mjs") return;
   const source = bytes.toString("utf8");
   const imports = [...source.matchAll(/^\s*(?:import|export)\s+(?:[^;\n]*?\s+from\s+)?["']([^"']+)["']/gm)]
     .map(match => match[1]);
@@ -117,7 +117,7 @@ async function assertPacked(packageRoot, name, expected) {
 }
 
 export async function auditSource({ packages = null } = {}) {
-  const sourceManifest = JSON.parse(await readFile(join(repositoryRoot, "SOURCE-MANIFEST.json"), "utf8"));
+  const sourceManifest = JSON.parse(await readFile(join(repositoryRoot, "packaging/source-manifest.json"), "utf8"));
   if (sourceManifest.version !== 1 || !Array.isArray(sourceManifest.files)) {
     throw new Error("Unsupported source manifest.");
   }
@@ -132,7 +132,7 @@ export async function auditSource({ packages = null } = {}) {
   }
   const sourceTree = await walk(repositoryRoot);
   const paths = sourceTree.files;
-  const allowed = new Set([...expected.keys(), "SOURCE-MANIFEST.json"]);
+  const allowed = new Set([...expected.keys(), "packaging/source-manifest.json"]);
   exactPaths(paths, allowed, "Source candidate");
   exactPaths(sourceTree.directories, requiredDirectories(allowed), "Source candidate directories");
   for (const [destination, sha256] of expected) {
@@ -141,9 +141,9 @@ export async function auditSource({ packages = null } = {}) {
     assertSecrets(destination, bytes);
     assertStaticClosure(allowed, destination, bytes);
   }
-  assertSecrets("SOURCE-MANIFEST.json", await readFile(join(repositoryRoot, "SOURCE-MANIFEST.json")));
-  const packageManifest = JSON.parse(await readFile(join(repositoryRoot, "standalone/manifest.json"), "utf8"));
-  const loaded = await loadManifest(join(repositoryRoot, "standalone/manifest.json"));
+  assertSecrets("packaging/source-manifest.json", await readFile(join(repositoryRoot, "packaging/source-manifest.json")));
+  const packageManifest = JSON.parse(await readFile(join(repositoryRoot, "packaging/manifest.json"), "utf8"));
+  const loaded = await loadManifest(join(repositoryRoot, "packaging/manifest.json"));
   if (packages) {
     const packageRoot = resolve(packages);
     if (packageRoot === repositoryRoot || packageRoot.startsWith(`${repositoryRoot}${sep}`)) {

@@ -1,0 +1,192 @@
+{
+  "agent-platform": {
+    "./composed-workflow-draft": [
+      "createComposedWorkflowDraftEditorFactory"
+    ],
+    "./journal": [
+      "agentWorkflowRunStatuses",
+      "createAgentWorkflowJournalFactory",
+      "normalizeAttemptPrice",
+      "normalizeModelSettings",
+      "normalizeMoney",
+      "normalizePriceVersion",
+      "normalizeUsage",
+      "normalizeVersion",
+      "versionIdentity"
+    ],
+    "./bootstrap": [
+      "bootstrapAgentPlatformPostgres",
+      "bootstrapAgentPlatformPostgresWithRunFamilies"
+    ],
+    "./postgres-reader": [
+      "AgentPostgresQueryError",
+      "createAgentPostgresReaderFactory",
+      "normalizeAgentPostgresQuery"
+    ],
+    "./staging": [
+      "canonicalStagedJson",
+      "createWorkflowStagingFactory",
+      "stagedValueHash"
+    ],
+    "./revision-controller": [
+      "createWorkflowRevisionControllerFactory"
+    ],
+    "./manifest": [
+      "createWorkflowManifestFactory",
+      "orderManifestCommands"
+    ],
+    "./validation": [
+      "assertWorkflowResultIdentity",
+      "createWorkflowValidationRecorder",
+      "describeWorkflowValidationGate",
+      "validateWorkflowValidationGate"
+    ],
+    "./workflow-review": [
+      "createWorkflowReviewFactory"
+    ],
+    "./admission": [
+      "createWorkflowAdmissionCommitter",
+      "describeWorkflowAdmissionReceipt",
+      "retrySerializationConflicts",
+      "validateWorkflowAdmissionReceipt"
+    ],
+    "./assignment-lifecycle": [
+      "createWorkflowAssignmentLifecycle"
+    ],
+    "./bounded-analysis-worker": [
+      "createBoundedAnalysisWorkerFactory"
+    ],
+    "./worker-runtime": [
+      "createWorkerRuntimeFactory"
+    ],
+    "./https-fetch": [
+      "fetchHttpsText"
+    ],
+    "./tool-assignment-v1": [
+      "createToolRegistration",
+      "resolveToolAssignments"
+    ],
+    "./assigned-execution-v1": [
+      "assignedProviderCapabilityRequestV2",
+      "assignedProviderQualificationRequest",
+      "createAssignedToolAdapter",
+      "createStructuredWorkflowAgent",
+      "finalizeAcceptedStructuredWorkflowAttempt",
+      "renderPrompt",
+      "resolveWorkflowToolAssignment",
+      "validateAssignedProviderQualification",
+      "validatePromptStructure",
+      "validateWorkflowToolAssignments",
+      "workflowDefinitionHash"
+    ],
+    "./composition-checkpoint-records-v1": [
+      "compositionCheckpointRecordHash",
+      "createCompositionCheckpointRecords",
+      "getCompositionCheckpointRecordsSchemaUrl"
+    ],
+    "./reserved-answer-finalization-v1": [
+      "completeWorkflowRunInTransaction",
+      "createReservedAnswerFinalization",
+      "getReservedAnswerFinalizationSchemaUrl",
+      "reservedAnswerFinalizationDescriptor"
+    ],
+    "./checkpoint-status-v1": [
+      "createAssignedCheckpointStatusTool",
+      "createCheckpointStatusReader"
+    ],
+    "./caller-tool-outcome-v1": [
+      "callerToolOutcomeDescriptor",
+      "callerToolOutcomeHash",
+      "createCallerToolInvocationBinding",
+      "validateCallerToolOutcome"
+    ],
+    "./restored-child-owned-tool-v1": [
+      "createRestoredChildToolContinuation",
+      "getRestoredChildBoundedToolsSchemaUrl",
+      "getRestoredChildToolSchemaUrl",
+      "restoredChildToolDescriptor"
+    ],
+    "./composition-decisions-v1": [
+      "advanceCompositionToolObservation",
+      "assignedCompositionDecision"
+    ],
+    "./restored-child-bounded-tools-v2": [
+      "createRestoredChildToolContinuation",
+      "getRestoredChildBoundedToolsSchemaUrl",
+      "restoredChildToolDescriptor"
+    ],
+    "./saved-root-initialization-v1": [
+      "createSavedRootInitialization",
+      "getSavedRootInitializationSchemaUrl",
+      "savedRootInitializationDescriptor"
+    ],
+    "./root-cycle-progress-v1": [
+      "ROOT_CYCLE_PROGRESS_EVENT",
+      "createRootCycleProgress",
+      "inspectRootCycleProgress",
+      "rootCycleRecoveryDescriptor",
+      "rootCycleSnapshotHash"
+    ],
+    "./part-cycle-progress-v1": [
+      "PART_CYCLE_PROGRESS_EVENT",
+      "createPartCycleProgress",
+      "inspectPartCycleProgress",
+      "partCycleRecoveryDescriptor",
+      "partCycleSnapshotHash"
+    ]
+  },
+  "content-ledger": {
+    "./capture": [
+      "CONTENT_LEDGER_POSTGRES_SCHEMA_PROFILE",
+      "assertContentLedgerSchemaProfile",
+      "assertProfileJsonValue",
+      "bootstrapContentLedgerPostgres",
+      "contentVersionIdentity",
+      "createPostgresContentLedgerWriter",
+      "hashValue",
+      "normalizeContentExtensionDefinition",
+      "normalizeContentVersion",
+      "normalizeObservedContent",
+      "normalizeObservedUsage",
+      "observedUsageIdentity",
+      "validateContentLedgerProfileSchema"
+    ],
+    "./relationships": [
+      "assertNormalizedContentRelationship",
+      "contentRelationshipIdentity",
+      "createPostgresContentRelationshipWriter",
+      "normalizeContentRelationship"
+    ],
+    "./assessments": [
+      "assertNormalizedAssessmentDefinition",
+      "assertNormalizedContentAssessment",
+      "bootstrapContentAssessmentPostgres",
+      "contentAssessmentIdentity",
+      "createPostgresContentAssessmentWriter",
+      "normalizeAssessmentDefinition",
+      "normalizeContentAssessment"
+    ],
+    "./transfers": [
+      "assertAssessmentIdentity",
+      "assertDecisionIdentity",
+      "assertDeliveryOutcomeIdentity",
+      "assertRequestIdentity",
+      "bootstrapContentTransferDeliveryPostgres",
+      "bootstrapContentTransferPostgres",
+      "createContentTransferDecisionService",
+      "createPostgresContentTransferPersistence",
+      "expectedAssessmentDefinitionIdentity",
+      "expectedPolicyIdentity",
+      "normalizeTransferAssessment",
+      "normalizeTransferAssessmentDefinition",
+      "normalizeTransferDecision",
+      "normalizeTransferDeliveryOutcome",
+      "normalizeTransferPolicyDefinition",
+      "normalizeTransferRequest"
+    ],
+    "./delivery": [
+      "createContentTransferDeliveryCoordinator",
+      "createPostgresContentTransferDeliveryPersistence"
+    ]
+  }
+}

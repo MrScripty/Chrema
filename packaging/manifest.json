@@ -1,0 +1,826 @@
+{
+  "version": 1,
+  "packages": {
+    "agent-platform": {
+      "metadata": {
+        "path": "packaging/metadata/agent-platform.json",
+        "sha256": "fcd7b44db5016e0def90c14a25fc03c8fca59fa6530fdd2477ecc5776f2104de"
+      },
+      "files": [
+        {
+          "source": "src/shared/agent-audit-safety.mjs",
+          "destination": "src/shared/agent-audit-safety.mjs",
+          "sha256": "3401d6639770ca544db67fbbba58bab337864bfcea6c95c90f6c71dae3a93113"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-composed-workflow-draft.mjs",
+          "destination": "src/agent-platform/agent-platform-composed-workflow-draft.mjs",
+          "sha256": "36843a523e6658f5c8c049dd398b948ae14086008e517ff28e8b688315f0a3c9"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-draft-preparation-policy.mjs",
+          "destination": "src/agent-platform/agent-platform-draft-preparation-policy.mjs",
+          "sha256": "fed916644c80877246b52c2dbf67c88bd6e7469e2c8e661203ff565b93bb7fe4"
+        },
+        {
+          "source": "src/shared/postgres-relations.mjs",
+          "destination": "src/shared/postgres-relations.mjs",
+          "sha256": "10868b35fdca6546846054d32a07c70d1580a94cffd70fb3b535d817a5868cb6"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-journal-contract.mjs",
+          "destination": "src/agent-platform/agent-platform-journal-contract.mjs",
+          "sha256": "4e4dacf8f81be69d42efef6a892072418eafff33f3811990321e773836fdbee4"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-claim-bound-journal.mjs",
+          "destination": "src/agent-platform/agent-platform-claim-bound-journal.mjs",
+          "sha256": "14a445fabdedeaa9f61690040f424487fecf3b3a7c1b792d59ad372e102134b6"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-bounded-analysis-worker.mjs",
+          "destination": "src/agent-platform/agent-platform-bounded-analysis-worker.mjs",
+          "sha256": "4028837d05dab16340e095740307658dea57dba9ee380590e29d6d5d6106351f"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-worker-runtime.mjs",
+          "destination": "src/agent-platform/agent-platform-worker-runtime.mjs",
+          "sha256": "31aa3f90f602a9a65618e8ec581ecad1c94dffc0f3d9239911bb99a45e93d0d1"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-execution-deadline.mjs",
+          "destination": "src/agent-platform/agent-platform-execution-deadline.mjs",
+          "sha256": "9ac0b24b3046ce3ca8ca166439ad5c3ff8d6a20c9cd77760b162ad87f8985da8"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-https-fetch.mjs",
+          "destination": "src/agent-platform/agent-platform-https-fetch.mjs",
+          "sha256": "8b6f535098ee610a9ea950ab0ae86dd6239f4f3a7185558061a13984e4bd8f19"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-journal.mjs",
+          "destination": "src/agent-platform/agent-platform-journal.mjs",
+          "sha256": "2aa3ca3071d4809f68050ecf0691883d48d55b0a7f178e2edec4a99f664aa1cb"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-postgres-bootstrap.mjs",
+          "destination": "src/agent-platform/agent-platform-postgres-bootstrap.mjs",
+          "sha256": "25e723b72672fa070bbe9c3a0d08ca0bc6a3d814864464db5a244e73c6aac1be"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-postgres-reader.mjs",
+          "destination": "src/agent-platform/agent-platform-postgres-reader.mjs",
+          "sha256": "6e68ab8710bd31cf4d1e368ed77569bb7a0bc324587f276e6c1a079a8d913f55"
+        },
+        {
+          "source": "schemas/agent-platform/journal-schema.sql",
+          "destination": "schemas/agent-platform/journal-schema.sql",
+          "sha256": "dfdc1cf52ca384020b4ad77f8bce4281b88c50c2d594eccebde03fadefb68df6"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-staging.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-staging.mjs",
+          "sha256": "bfc0c35c3a201f9f5d369b4c1b0da5ceb8f68a4ea60d44a70fb4318480c91c22"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-revision-controller.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-revision-controller.mjs",
+          "sha256": "8e88a6b3a80bcb2cd902919adafec26aef33a6670152ffcf652ee9874a31a40e"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-manifest.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-manifest.mjs",
+          "sha256": "b1b1faf7091b1a040173d165346cbaa7e4165dc50f230fcde50b6617f7c60f53"
+        },
+        {
+          "source": "src/agent-platform/workflow-validation-contract.mjs",
+          "destination": "src/agent-platform/workflow-validation-contract.mjs",
+          "sha256": "7ef2bf883ee23f5556a52cc6c1b728e304cc76bf50d51e7e578cc7044db63dd8"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-validation-recorder.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-validation-recorder.mjs",
+          "sha256": "4e6e994a942f110006a6bdce469570ca30694a08de42ab61a66fb7a1cc820076"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-review.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-review.mjs",
+          "sha256": "51104cbbf26e4e88c4ea410fb96c1fdcb1028aef0d73c1cb6d1f2c867d36bc9b"
+        },
+        {
+          "source": "src/agent-platform/workflow-admission-contract.mjs",
+          "destination": "src/agent-platform/workflow-admission-contract.mjs",
+          "sha256": "30a83908429c286ef1684a608ca86d773e684351ac2a78202918d513e43e665f"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-admission-committer.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-admission-committer.mjs",
+          "sha256": "843d182764adead5797be0081a054eeecef15abdb2fbf6d2ab4631fac5829fc3"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-assignment-lifecycle.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-assignment-lifecycle.mjs",
+          "sha256": "1d4671d5d20c24a748a71df3680a81d7106aa185d1620fc6a8bc7052aad67df5"
+        },
+        {
+          "source": "packaging/README.md",
+          "destination": "README.md",
+          "sha256": "453cf3155f1a87c74605e8eaa028b0c934a082ec2d2719b49bcddf1e6b350efb"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-assigned-tool-adapter.mjs",
+          "destination": "src/agent-platform/agent-platform-assigned-tool-adapter.mjs",
+          "sha256": "6168580e1912e61e522a528caef1209981fe353002ebd4a1ac17f738619659fe"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-tool-assignment.mjs",
+          "destination": "src/agent-platform/agent-platform-tool-assignment.mjs",
+          "sha256": "27f224c474a8a658aa24efa34720ec6091045646f2562d0386c33a6a4c119c39"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-definition-tool-assignment.mjs",
+          "destination": "src/agent-platform/agent-platform-definition-tool-assignment.mjs",
+          "sha256": "809015b5ba934a929400dbbaa8363d924e6351dd2236692462a56f48a4a95c47"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-prompt.mjs",
+          "destination": "src/agent-platform/agent-platform-prompt.mjs",
+          "sha256": "9ea53bec9c608c48d65bfd912a5add3ab071e91df19df8fb6957c7d394db7394"
+        },
+        {
+          "source": "src/agent-platform/structured-workflow-agent.mjs",
+          "destination": "src/agent-platform/structured-workflow-agent.mjs",
+          "sha256": "29ecbea9c34e7d764d6bec7093190328659460bd6050b56890d1901f0d3c85ad"
+        },
+        {
+          "source": "src/agent-platform/codex-telemetry.mjs",
+          "destination": "src/agent-platform/codex-telemetry.mjs",
+          "sha256": "69f671912983152929ddae37061b6c003f942634be9a5c39056b359a1cd41eff"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-bounded-analysis-execution.mjs",
+          "destination": "src/agent-platform/agent-platform-bounded-analysis-execution.mjs",
+          "sha256": "0d4e6c36ab0e747e502a679becaa9ccc90d0665d255956c646b031d73675b6df"
+        },
+        {
+          "source": "src/shared/value-schema.mjs",
+          "destination": "src/shared/value-schema.mjs",
+          "sha256": "bfc554482df19048c5053bb668d8c641b6cdc03f417986ef53aed5e313bde99b"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-part-topology.mjs",
+          "destination": "src/agent-platform/agent-platform-part-topology.mjs",
+          "sha256": "5f1271b703e4fc216ed0fb2b239c5a3648ec52a200c04133c0a9eac0e3472bf0"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-stage-authoring.mjs",
+          "destination": "src/agent-platform/agent-platform-stage-authoring.mjs",
+          "sha256": "d4de2e258fe5606ee02a0c3fa1b866e9f6039ba67b1ff84271f433cc4ca3ac1b"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-composition-checkpoint-records.mjs",
+          "destination": "src/agent-platform/agent-platform-composition-checkpoint-records.mjs",
+          "sha256": "44c7626f161db9d80e6dd212286a6bf1cdbe779190e57d7967714327592a2bf8"
+        },
+        {
+          "source": "schemas/agent-platform/composition-checkpoint-records-v1.sql",
+          "destination": "schemas/agent-platform/composition-checkpoint-records-v1.sql",
+          "sha256": "8d30b49545ad0bef7d06c8b2927d37ee0588b4f71ac8e3ce2674b5796baaf5f5"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-reserved-answer-finalization.mjs",
+          "destination": "src/agent-platform/agent-platform-reserved-answer-finalization.mjs",
+          "sha256": "33051be1980409da5fa5ce111cb83837e7bfe21198268083a9646afe7da7af1b"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-reserved-child-host-continuation.mjs",
+          "destination": "src/agent-platform/agent-platform-reserved-child-host-continuation.mjs",
+          "sha256": "39201cf5c8e44a517e09af002d1b8649e5b3ebdf0b31fdd71980e328130108ff"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-workflow-completion.mjs",
+          "destination": "src/agent-platform/agent-platform-workflow-completion.mjs",
+          "sha256": "6ed1775b2f3c4cd643d4b21be8092befe9fc89b9fe1b5ca0bbc6b58b5d82c246"
+        },
+        {
+          "source": "schemas/agent-platform/reserved-answer-finalization-v1.sql",
+          "destination": "schemas/agent-platform/reserved-answer-finalization-v1.sql",
+          "sha256": "3f598bbbb166131c50020425e84e767317569af31b66b9c40c1e609dc527ffd8"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-checkpoint-status.mjs",
+          "destination": "src/agent-platform/agent-platform-checkpoint-status.mjs",
+          "sha256": "c5ed8b02bd6d7fa38ca880c20f59f5e882e23c2d94cc62fd9cc8d2e1dfaa3ec1"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-caller-tool-outcome.mjs",
+          "destination": "src/agent-platform/agent-platform-caller-tool-outcome.mjs",
+          "sha256": "f29fbf1d4df21b1a68e1321829d5bbdf78022143a51a3b5f85c00acaa8f0db18"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-restored-child-owned-tool.mjs",
+          "destination": "src/agent-platform/agent-platform-restored-child-owned-tool.mjs",
+          "sha256": "5b01389c6b356593c7219930d8f08c59df0952450390323b0bf83e68f45a2d1e"
+        },
+        {
+          "source": "schemas/agent-platform/restored-child-owned-tool-v1.sql",
+          "destination": "schemas/agent-platform/restored-child-owned-tool-v1.sql",
+          "sha256": "45576b587aea7292a68651f12d0db1b164d60d591710fe50ef10b5923f4ae220"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-composition-decisions.mjs",
+          "destination": "src/agent-platform/agent-platform-composition-decisions.mjs",
+          "sha256": "c4e8e495c3c486747ea0502b5eca725c5d1160ab2e54734effdc80db7a19ad0d"
+        },
+        {
+          "source": "schemas/agent-platform/restored-child-bounded-tools-v2.sql",
+          "destination": "schemas/agent-platform/restored-child-bounded-tools-v2.sql",
+          "sha256": "73fcba7e0341878e8f109716a2e274db9ffece895aa1b6fdc033946f90330ad3"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-saved-root-initialization.mjs",
+          "destination": "src/agent-platform/agent-platform-saved-root-initialization.mjs",
+          "sha256": "3aee62ef03803b55fcd460d4f7979772c153cdf09204aa2dcdbe0b149983797c"
+        },
+        {
+          "source": "schemas/agent-platform/saved-root-initialization-v1.sql",
+          "destination": "schemas/agent-platform/saved-root-initialization-v1.sql",
+          "sha256": "b253ca58cfd75ea18421afd40182c54ab2c7ab3e7fcac5d370515312da6f0aba"
+        },
+        {
+          "source": "schemas/agent-platform/saved-root-initialization-v2.sql",
+          "destination": "schemas/agent-platform/saved-root-initialization-v2.sql",
+          "sha256": "cef1703a645d0026bfdef80fc4240e0d580110dd4dd13d4fa122c12193c33837"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-root-cycle-progress.mjs",
+          "destination": "src/agent-platform/agent-platform-root-cycle-progress.mjs",
+          "sha256": "f7f597a5e79a92b3566d12e3c597379fb980187ed55fe58c67f10147b762d163"
+        },
+        {
+          "source": "src/agent-platform/agent-platform-part-cycle-progress.mjs",
+          "destination": "src/agent-platform/agent-platform-part-cycle-progress.mjs",
+          "sha256": "2cf391080fff7e6370c40850a629b80fec3e7b24beb492eaa6ba5cf2aac0950b"
+        },
+        {
+          "source": "LICENSE",
+          "destination": "LICENSE",
+          "sha256": "b1d2870f1a00e4d7f56576e5f0870cba109e041f8af66866cf5b499478e654e7"
+        }
+      ],
+      "exports": {
+        "./composed-workflow-draft": [
+          {
+            "module": "src/agent-platform/agent-platform-composed-workflow-draft.mjs",
+            "names": [
+              "createComposedWorkflowDraftEditorFactory"
+            ]
+          }
+        ],
+        "./journal": [
+          {
+            "module": "src/agent-platform/agent-platform-journal.mjs",
+            "names": [
+              "agentWorkflowRunStatuses",
+              "createAgentWorkflowJournalFactory"
+            ]
+          },
+          {
+            "module": "src/agent-platform/agent-platform-journal-contract.mjs",
+            "names": [
+              "normalizeModelSettings",
+              "normalizeUsage",
+              "versionIdentity",
+              "normalizeVersion",
+              "normalizePriceVersion",
+              "normalizeAttemptPrice",
+              "normalizeMoney"
+            ]
+          }
+        ],
+        "./bootstrap": [
+          {
+            "module": "src/agent-platform/agent-platform-postgres-bootstrap.mjs",
+            "names": [
+              "bootstrapAgentPlatformPostgres",
+              "bootstrapAgentPlatformPostgresWithRunFamilies"
+            ]
+          }
+        ],
+        "./postgres-reader": [
+          {
+            "module": "src/agent-platform/agent-platform-postgres-reader.mjs",
+            "names": [
+              "createAgentPostgresReaderFactory",
+              "AgentPostgresQueryError",
+              "normalizeAgentPostgresQuery"
+            ]
+          }
+        ],
+        "./staging": [
+          {
+            "module": "src/agent-platform/agent-platform-workflow-staging.mjs",
+            "names": [
+              "createWorkflowStagingFactory",
+              "stagedValueHash",
+              "canonicalStagedJson"
+            ]
+          }
+        ],
+        "./revision-controller": [
+          {
+            "module": "src/agent-platform/agent-platform-workflow-revision-controller.mjs",
+            "names": [
+              "createWorkflowRevisionControllerFactory"
+            ]
+          }
+        ],
+        "./manifest": [
+          {
+            "module": "src/agent-platform/agent-platform-workflow-manifest.mjs",
+            "names": [
+              "createWorkflowManifestFactory",
+              "orderManifestCommands"
+            ]
+          }
+        ],
+        "./validation": [
+          {
+            "module": "src/agent-platform/agent-platform-workflow-validation-recorder.mjs",
+            "names": [
+              "createWorkflowValidationRecorder"
+            ]
+          },
+          {
+            "module": "src/agent-platform/workflow-validation-contract.mjs",
+            "names": [
+              "describeWorkflowValidationGate",
+              "assertWorkflowResultIdentity",
+              "validateWorkflowValidationGate"
+            ]
+          }
+        ],
+        "./workflow-review": [
+          {
+            "module": "src/agent-platform/agent-platform-workflow-review.mjs",
+            "names": [
+              "createWorkflowReviewFactory"
+            ]
+          }
+        ],
+        "./admission": [
+          {
+            "module": "src/agent-platform/agent-platform-workflow-admission-committer.mjs",
+            "names": [
+              "createWorkflowAdmissionCommitter",
+              "retrySerializationConflicts"
+            ]
+          },
+          {
+            "module": "src/agent-platform/workflow-admission-contract.mjs",
+            "names": [
+              "describeWorkflowAdmissionReceipt",
+              "validateWorkflowAdmissionReceipt"
+            ]
+          }
+        ],
+        "./assignment-lifecycle": [
+          {
+            "module": "src/agent-platform/agent-platform-workflow-assignment-lifecycle.mjs",
+            "names": [
+              "createWorkflowAssignmentLifecycle"
+            ]
+          }
+        ],
+        "./bounded-analysis-worker": [
+          {
+            "module": "src/agent-platform/agent-platform-bounded-analysis-worker.mjs",
+            "names": [
+              "createBoundedAnalysisWorkerFactory"
+            ]
+          }
+        ],
+        "./worker-runtime": [
+          {
+            "module": "src/agent-platform/agent-platform-worker-runtime.mjs",
+            "names": [
+              "createWorkerRuntimeFactory"
+            ]
+          }
+        ],
+        "./https-fetch": [
+          {
+            "module": "src/agent-platform/agent-platform-https-fetch.mjs",
+            "names": [
+              "fetchHttpsText"
+            ]
+          }
+        ],
+        "./tool-assignment-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-tool-assignment.mjs",
+            "names": [
+              "createToolRegistration",
+              "resolveToolAssignments"
+            ]
+          }
+        ],
+        "./assigned-execution-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-assigned-tool-adapter.mjs",
+            "names": [
+              "createAssignedToolAdapter"
+            ]
+          },
+          {
+            "module": "src/agent-platform/agent-platform-definition-tool-assignment.mjs",
+            "names": [
+              "validateWorkflowToolAssignments",
+              "resolveWorkflowToolAssignment",
+              "assignedProviderQualificationRequest",
+              "assignedProviderCapabilityRequestV2",
+              "validateAssignedProviderQualification"
+            ]
+          },
+          {
+            "module": "src/agent-platform/agent-platform-prompt.mjs",
+            "names": [
+              "renderPrompt",
+              "validatePromptStructure",
+              "workflowDefinitionHash"
+            ]
+          },
+          {
+            "module": "src/agent-platform/structured-workflow-agent.mjs",
+            "names": [
+              "createStructuredWorkflowAgent",
+              "finalizeAcceptedStructuredWorkflowAttempt"
+            ]
+          }
+        ],
+        "./composition-checkpoint-records-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-composition-checkpoint-records.mjs",
+            "names": [
+              "createCompositionCheckpointRecords",
+              "compositionCheckpointRecordHash",
+              "getCompositionCheckpointRecordsSchemaUrl"
+            ]
+          }
+        ],
+        "./reserved-answer-finalization-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-reserved-answer-finalization.mjs",
+            "names": [
+              "createReservedAnswerFinalization",
+              "reservedAnswerFinalizationDescriptor",
+              "getReservedAnswerFinalizationSchemaUrl"
+            ]
+          },
+          {
+            "module": "src/agent-platform/agent-platform-workflow-completion.mjs",
+            "names": [
+              "completeWorkflowRunInTransaction"
+            ]
+          }
+        ],
+        "./checkpoint-status-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-checkpoint-status.mjs",
+            "names": [
+              "createCheckpointStatusReader",
+              "createAssignedCheckpointStatusTool"
+            ]
+          }
+        ],
+        "./caller-tool-outcome-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-caller-tool-outcome.mjs",
+            "names": [
+              "callerToolOutcomeDescriptor",
+              "createCallerToolInvocationBinding",
+              "validateCallerToolOutcome",
+              "callerToolOutcomeHash"
+            ]
+          }
+        ],
+        "./restored-child-owned-tool-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-restored-child-owned-tool.mjs",
+            "names": [
+              "restoredChildToolDescriptor",
+              "createRestoredChildToolContinuation",
+              "getRestoredChildToolSchemaUrl",
+              "getRestoredChildBoundedToolsSchemaUrl"
+            ]
+          }
+        ],
+        "./composition-decisions-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-composition-decisions.mjs",
+            "names": [
+              "assignedCompositionDecision",
+              "advanceCompositionToolObservation"
+            ]
+          }
+        ],
+        "./restored-child-bounded-tools-v2": [
+          {
+            "module": "src/agent-platform/agent-platform-restored-child-owned-tool.mjs",
+            "names": [
+              "restoredChildToolDescriptor",
+              "createRestoredChildToolContinuation",
+              "getRestoredChildBoundedToolsSchemaUrl"
+            ]
+          }
+        ],
+        "./saved-root-initialization-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-saved-root-initialization.mjs",
+            "names": [
+              "savedRootInitializationDescriptor",
+              "createSavedRootInitialization",
+              "getSavedRootInitializationSchemaUrl"
+            ]
+          }
+        ],
+        "./root-cycle-progress-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-root-cycle-progress.mjs",
+            "names": [
+              "ROOT_CYCLE_PROGRESS_EVENT",
+              "rootCycleSnapshotHash",
+              "rootCycleRecoveryDescriptor",
+              "inspectRootCycleProgress",
+              "createRootCycleProgress"
+            ]
+          }
+        ],
+        "./part-cycle-progress-v1": [
+          {
+            "module": "src/agent-platform/agent-platform-part-cycle-progress.mjs",
+            "names": [
+              "PART_CYCLE_PROGRESS_EVENT",
+              "partCycleSnapshotHash",
+              "partCycleRecoveryDescriptor",
+              "inspectPartCycleProgress",
+              "createPartCycleProgress"
+            ]
+          }
+        ]
+      }
+    },
+    "content-ledger": {
+      "metadata": {
+        "path": "packaging/metadata/content-ledger.json",
+        "sha256": "3400f5396ddfeb306252d70ca549e713578426ed6350da97db6a665fee8a56d6"
+      },
+      "files": [
+        {
+          "source": "src/shared/postgres-relations.mjs",
+          "destination": "src/shared/postgres-relations.mjs",
+          "sha256": "10868b35fdca6546846054d32a07c70d1580a94cffd70fb3b535d817a5868cb6"
+        },
+        {
+          "source": "src/shared/value-schema.mjs",
+          "destination": "src/shared/value-schema.mjs",
+          "sha256": "bfc554482df19048c5053bb668d8c641b6cdc03f417986ef53aed5e313bde99b"
+        },
+        {
+          "source": "src/content-ledger/content-ledger-contract.mjs",
+          "destination": "src/content-ledger/content-ledger-contract.mjs",
+          "sha256": "1eb215e888df52fa1646430668e05e41be9cfe99360416a2e85037ca8a493172"
+        },
+        {
+          "source": "src/content-ledger/content-ledger-postgres-profile.mjs",
+          "destination": "src/content-ledger/content-ledger-postgres-profile.mjs",
+          "sha256": "60f5ed21e0ad9fe6967bbc17f4f3ec06c2429968a96b436645fd22aed6692420"
+        },
+        {
+          "source": "src/content-ledger/content-ledger-postgres-bootstrap.mjs",
+          "destination": "src/content-ledger/content-ledger-postgres-bootstrap.mjs",
+          "sha256": "741d24cc1f0821ab63e3f0a39a4beb930adea40bdcce099c3972e60753d8d74a"
+        },
+        {
+          "source": "src/content-ledger/content-ledger-postgres-writer.mjs",
+          "destination": "src/content-ledger/content-ledger-postgres-writer.mjs",
+          "sha256": "34c01a7ce004f75ffd9eba21d741d853864ae75a46c5753558d2023aea927674"
+        },
+        {
+          "source": "schemas/content-ledger/capture-schema.sql",
+          "destination": "schemas/content-ledger/capture-schema.sql",
+          "sha256": "5cff1cfd55b53c914c1f38030358e1f9da1fcf4bdab903776ee18bc67775ee36"
+        },
+        {
+          "source": "schemas/content-ledger/capture-v1-validation.sql",
+          "destination": "schemas/content-ledger/capture-v1-validation.sql",
+          "sha256": "71d57d27723d2602f41d0498cc370ec3367d8835cf6e5eb76aba0b9c53c9a692"
+        },
+        {
+          "source": "src/content-ledger/content-ledger-relationship-contract.mjs",
+          "destination": "src/content-ledger/content-ledger-relationship-contract.mjs",
+          "sha256": "55d3d37c23ba7eba26fc573a5d28dc472d7dae3f46d45cbf4e9c301629a590cc"
+        },
+        {
+          "source": "src/content-ledger/content-ledger-relationship-postgres-writer.mjs",
+          "destination": "src/content-ledger/content-ledger-relationship-postgres-writer.mjs",
+          "sha256": "735d044b559392fda13ca8cbf27d82aa04e56fc4f320436b3c41ab350a7f7b88"
+        },
+        {
+          "source": "src/content-ledger/content-assessment-contract.mjs",
+          "destination": "src/content-ledger/content-assessment-contract.mjs",
+          "sha256": "e4e425c1accf75e0c52606a04501fd56999b9f76c41cac5adc49e50593ccf114"
+        },
+        {
+          "source": "src/content-ledger/content-assessment-postgres-bootstrap.mjs",
+          "destination": "src/content-ledger/content-assessment-postgres-bootstrap.mjs",
+          "sha256": "9e7d83c908bd23fbee4bd316bcb78650f42d6649a536cc9102d6eb5c211300cb"
+        },
+        {
+          "source": "src/content-ledger/content-assessment-postgres-writer.mjs",
+          "destination": "src/content-ledger/content-assessment-postgres-writer.mjs",
+          "sha256": "b1b2a0c1d9df55298bd9f0ff1894d62bcfd61623cc29455a9e58e34d08e1a2bc"
+        },
+        {
+          "source": "schemas/content-ledger/assessment-schema.sql",
+          "destination": "schemas/content-ledger/assessment-schema.sql",
+          "sha256": "35f8c5167b2f71f43cd8b941d7dfe26ff09233af89121ccd92125622b73ff35d"
+        },
+        {
+          "source": "src/content-ledger/content-transfer-contract.mjs",
+          "destination": "src/content-ledger/content-transfer-contract.mjs",
+          "sha256": "dcb465a0d4d671dae548df34690ae1733ff88e6e8cbe7f07d7300f0170a69a1f"
+        },
+        {
+          "source": "src/content-ledger/content-transfer-postgres-bootstrap.mjs",
+          "destination": "src/content-ledger/content-transfer-postgres-bootstrap.mjs",
+          "sha256": "2e054d0d557886d36a0e0086c54b29adea74970d2a1e16a68dd992a58f715029"
+        },
+        {
+          "source": "src/content-ledger/content-transfer-postgres-persistence.mjs",
+          "destination": "src/content-ledger/content-transfer-postgres-persistence.mjs",
+          "sha256": "f77e672f48dc552c40a8987c05f853b498c45c3c3c5229a33aa206915af1dd1c"
+        },
+        {
+          "source": "src/content-ledger/content-transfer-decision.mjs",
+          "destination": "src/content-ledger/content-transfer-decision.mjs",
+          "sha256": "d2186b4942bfe11b21ae2a0495ee9597b994e0ecc1636f176044e1d5fa7388d4"
+        },
+        {
+          "source": "src/content-ledger/content-transfer-delivery-coordinator.mjs",
+          "destination": "src/content-ledger/content-transfer-delivery-coordinator.mjs",
+          "sha256": "25a13e83f5c9ab9f20f038de2438da5b85c52e320803a3fe33027b263ada2d96"
+        },
+        {
+          "source": "src/content-ledger/content-transfer-delivery-postgres-persistence.mjs",
+          "destination": "src/content-ledger/content-transfer-delivery-postgres-persistence.mjs",
+          "sha256": "2a5a89c430d6f88554b5a2210880a2ceeed2062a85eddd6190c28124b927449b"
+        },
+        {
+          "source": "schemas/content-ledger/transfer-schema.sql",
+          "destination": "schemas/content-ledger/transfer-schema.sql",
+          "sha256": "33b205f4b88075a0fbe3d8cf32a712d96a17dbf6d1c1e8b7f988251c6988570d"
+        },
+        {
+          "source": "packaging/README.md",
+          "destination": "README.md",
+          "sha256": "453cf3155f1a87c74605e8eaa028b0c934a082ec2d2719b49bcddf1e6b350efb"
+        },
+        {
+          "source": "LICENSE",
+          "destination": "LICENSE",
+          "sha256": "b1d2870f1a00e4d7f56576e5f0870cba109e041f8af66866cf5b499478e654e7"
+        }
+      ],
+      "exports": {
+        "./capture": [
+          {
+            "module": "src/content-ledger/content-ledger-contract.mjs",
+            "names": [
+              "normalizeContentExtensionDefinition",
+              "normalizeContentVersion",
+              "normalizeObservedUsage",
+              "normalizeObservedContent",
+              "contentVersionIdentity",
+              "observedUsageIdentity",
+              "hashValue"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-ledger-postgres-profile.mjs",
+            "names": [
+              "CONTENT_LEDGER_POSTGRES_SCHEMA_PROFILE",
+              "assertContentLedgerSchemaProfile",
+              "validateContentLedgerProfileSchema",
+              "assertProfileJsonValue"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-ledger-postgres-bootstrap.mjs",
+            "names": [
+              "bootstrapContentLedgerPostgres"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-ledger-postgres-writer.mjs",
+            "names": [
+              "createPostgresContentLedgerWriter"
+            ]
+          }
+        ],
+        "./relationships": [
+          {
+            "module": "src/content-ledger/content-ledger-relationship-contract.mjs",
+            "names": [
+              "normalizeContentRelationship",
+              "contentRelationshipIdentity",
+              "assertNormalizedContentRelationship"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-ledger-relationship-postgres-writer.mjs",
+            "names": [
+              "createPostgresContentRelationshipWriter"
+            ]
+          }
+        ],
+        "./assessments": [
+          {
+            "module": "src/content-ledger/content-assessment-contract.mjs",
+            "names": [
+              "normalizeAssessmentDefinition",
+              "normalizeContentAssessment",
+              "contentAssessmentIdentity",
+              "assertNormalizedAssessmentDefinition",
+              "assertNormalizedContentAssessment"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-assessment-postgres-bootstrap.mjs",
+            "names": [
+              "bootstrapContentAssessmentPostgres"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-assessment-postgres-writer.mjs",
+            "names": [
+              "createPostgresContentAssessmentWriter"
+            ]
+          }
+        ],
+        "./transfers": [
+          {
+            "module": "src/content-ledger/content-transfer-contract.mjs",
+            "names": [
+              "normalizeTransferPolicyDefinition",
+              "normalizeTransferAssessmentDefinition",
+              "normalizeTransferAssessment",
+              "normalizeTransferRequest",
+              "normalizeTransferDecision",
+              "normalizeTransferDeliveryOutcome",
+              "expectedPolicyIdentity",
+              "expectedAssessmentDefinitionIdentity",
+              "assertRequestIdentity",
+              "assertAssessmentIdentity",
+              "assertDecisionIdentity",
+              "assertDeliveryOutcomeIdentity"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-transfer-postgres-bootstrap.mjs",
+            "names": [
+              "bootstrapContentTransferPostgres",
+              "bootstrapContentTransferDeliveryPostgres"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-transfer-postgres-persistence.mjs",
+            "names": [
+              "createPostgresContentTransferPersistence"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-transfer-decision.mjs",
+            "names": [
+              "createContentTransferDecisionService"
+            ]
+          }
+        ],
+        "./delivery": [
+          {
+            "module": "src/content-ledger/content-transfer-delivery-coordinator.mjs",
+            "names": [
+              "createContentTransferDeliveryCoordinator"
+            ]
+          },
+          {
+            "module": "src/content-ledger/content-transfer-delivery-postgres-persistence.mjs",
+            "names": [
+              "createPostgresContentTransferDeliveryPersistence"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

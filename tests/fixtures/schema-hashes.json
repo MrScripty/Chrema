@@ -1,0 +1,13 @@
+{
+  "schemas/agent-platform/journal-schema.sql": "dfdc1cf52ca384020b4ad77f8bce4281b88c50c2d594eccebde03fadefb68df6",
+  "schemas/agent-platform/composition-checkpoint-records-v1.sql": "8d30b49545ad0bef7d06c8b2927d37ee0588b4f71ac8e3ce2674b5796baaf5f5",
+  "schemas/agent-platform/reserved-answer-finalization-v1.sql": "3f598bbbb166131c50020425e84e767317569af31b66b9c40c1e609dc527ffd8",
+  "schemas/agent-platform/restored-child-owned-tool-v1.sql": "45576b587aea7292a68651f12d0db1b164d60d591710fe50ef10b5923f4ae220",
+  "schemas/agent-platform/restored-child-bounded-tools-v2.sql": "73fcba7e0341878e8f109716a2e274db9ffece895aa1b6fdc033946f90330ad3",
+  "schemas/agent-platform/saved-root-initialization-v1.sql": "b253ca58cfd75ea18421afd40182c54ab2c7ab3e7fcac5d370515312da6f0aba",
+  "schemas/agent-platform/saved-root-initialization-v2.sql": "cef1703a645d0026bfdef80fc4240e0d580110dd4dd13d4fa122c12193c33837",
+  "schemas/content-ledger/capture-schema.sql": "5cff1cfd55b53c914c1f38030358e1f9da1fcf4bdab903776ee18bc67775ee36",
+  "schemas/content-ledger/capture-v1-validation.sql": "71d57d27723d2602f41d0498cc370ec3367d8835cf6e5eb76aba0b9c53c9a692",
+  "schemas/content-ledger/assessment-schema.sql": "35f8c5167b2f71f43cd8b941d7dfe26ff09233af89121ccd92125622b73ff35d",
+  "schemas/content-ledger/transfer-schema.sql": "33b205f4b88075a0fbe3d8cf32a712d96a17dbf6d1c1e8b7f988251c6988570d"
+}
