@@ -1,0 +1,12 @@
+{
+  "name": "agent-platform",
+  "version": "0.0.0",
+  "description": "Reusable agent workflow journal, worker lifecycle, bounded HTTPS text retrieval, bounded revision, staging, validation, review, admission, and PostgreSQL reader machinery",
+  "type": "module",
+  "private": true,
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {}
+}
