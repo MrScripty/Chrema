@@ -1,45 +1,91 @@
 # Chrema
 
-Chrema contains two independently bounded ESM packages: `agent-platform` for
-agent workflows and `content-ledger` for PostgreSQL content records, assessments,
-transfers and delivery. It also includes an independent synthetic archive application. The package
-manifest and source manifest pin every copied source and SQL file by SHA-256.
+Chrema is a set of reusable components for **composing agent workflows, observing
+their execution, and retaining the information they produce or use**. Combine
+workflow steps, tools and host-provided executors while keeping a record of what
+ran, which inputs it used, and how results were reviewed or admitted.
 
-The following commands use fresh directories outside this source tree:
+Your application supplies the workflow definitions, model/provider adapters,
+prompts and policies. Chrema supplies the journals, lifecycle and validation
+components around them; it is not a ready-made chatbot or a hosted service.
+
+## Two packages, one repository
+
+| Package | What it provides |
+| --- | --- |
+| `agent-platform` | Workflow versions, runs, assignments, attempts and events; worker and tool lifecycles; staging, validation, review and admission |
+| `content-ledger` | Content versions and observed usage; relationships and assessments; policy-driven transfer decisions and delivery records |
+
+Use either package independently, or compose them in your application. They have
+no external npm runtime dependencies and do not import each other. The ledger's
+capture schema expects compatible journal relations supplied by the host.
+
+## Try it without a database
+
+Requires **Node.js 22.12 or later**. From a source checkout:
 
 ```sh
-standalone_source=/absolute/path/to/exported-source
-standalone_built=/absolute/path/to/fresh-built-root
-standalone_workspace=/absolute/path/to/fresh-install-workspace
-standalone_archives="$standalone_workspace/archives"
-standalone_consumer="$standalone_workspace/consumer"
-standalone_cache=/absolute/path/to/fresh-npm-cache
-mkdir -p "$standalone_archives" "$standalone_consumer" "$standalone_cache"
-node "$standalone_source/scripts/audit.mjs"
-node "$standalone_source/scripts/build.mjs" --out "$standalone_built"
-node "$standalone_source/scripts/audit.mjs" --packages "$standalone_built"
-npm pack --offline --ignore-scripts --cache "$standalone_cache" --pack-destination "$standalone_archives" "$standalone_built/agent-platform"
-npm pack --offline --ignore-scripts --cache "$standalone_cache" --pack-destination "$standalone_archives" "$standalone_built/content-ledger"
-printf '%s\n' '{"name":"synthetic-archive-consumer","private":true,"type":"module","dependencies":{"agent-platform":"file:../archives/agent-platform-0.0.0.tgz","content-ledger":"file:../archives/content-ledger-0.0.0.tgz"}}' > "$standalone_consumer/package.json"
-cd "$standalone_consumer"
-npm install --offline --ignore-scripts --no-audit --no-fund --cache "$standalone_cache"
-npm ls --depth=0
-npm ci --offline --ignore-scripts --no-audit --no-fund --cache "$standalone_cache"
-node "$standalone_source/scripts/verify.mjs" --packages "$standalone_consumer"
+git clone https://github.com/MrScripty/Chrema.git
+cd Chrema
+node examples/memory-workflow.mjs
 ```
 
-Keep the archive and consumer directories as siblings so the relative `file:`
-dependencies work from either location. The lockfile records those archives;
-keep them available when replaying it with `npm ci`.
+The example composes two deterministic text-processing components, records their
+assignments and input/output events, and prints the completed run with its trace.
+It needs no API key, model provider, package installation or database. It retains
+the original input and intermediate results in memory for inspection; that state
+disappears when the process exits. Read the [example](examples/memory-workflow.mjs)
+to see where your own components would plug in.
 
-PostgreSQL acceptance uses the same verifier with
-`--pg-client-module <absolute-host-driver-entry-file>`
-`--postgres-url-env STANDALONE_POSTGRES_URL` and a validated, short-lived disposable local
-socket URL in `STANDALONE_POSTGRES_URL`. The host supplies the driver and the
-disposable database; the source candidate carries neither.
+## When is PostgreSQL needed?
 
-The package runtime dependencies are empty. The PostgreSQL driver belongs to
-the host running the disposable acceptance database. The source and both packages use the Apache License, Version 2.0; see `LICENSE`.
-Package metadata retains `private: true` because no npm publication is configured.
-The packages have no runtime dependency on each other. Ledger capture schemas
-require host-compatible journal relations; applications own that composition.
+The agent journal supports memory and PostgreSQL. Durable storage and optional
+checkpoint/continuation protocols use PostgreSQL. The content ledger's
+persistence implementation also uses PostgreSQL; its pure validation and identity
+helpers can be used without it. Applications supply the database, driver and
+access policy.
+
+The SQL under `schemas/` defines tables, validation functions and explicit
+upgrades. It is not a database dump. Downloading or installing Chrema does not
+start a database or run those files. See [storage requirements](docs/storage.md).
+
+## Use the packages in an application
+
+There is no npm registry release yet. Build local packages from this checkout:
+
+```sh
+package_workspace=$(mktemp -d)
+node scripts/build.mjs --out "$package_workspace/packages"
+node scripts/audit.mjs --packages "$package_workspace/packages"
+npm pack --offline --ignore-scripts --pack-destination "$package_workspace" "$package_workspace/packages/agent-platform"
+npm pack --offline --ignore-scripts --pack-destination "$package_workspace" "$package_workspace/packages/content-ledger"
+```
+
+Then, from your application's directory, install either or both generated
+archives with `npm install /path/to/agent-platform-0.0.0.tgz` and
+`npm install /path/to/content-ledger-0.0.0.tgz`. The commands above print their
+locations. Import the package entry points, for example:
+
+```js
+import { createAgentWorkflowJournalFactory } from 'agent-platform/journal';
+import { normalizeContentVersion } from 'content-ledger/capture';
+```
+
+See the [API guide](docs/api.md) for host contracts and all 31 public entry points,
+and [development](docs/development.md) for tests, package verification and
+PostgreSQL acceptance.
+
+## Repository layout
+
+```text
+src/          Agent platform, content ledger and shared implementation modules
+schemas/      PostgreSQL definitions grouped by the two components
+examples/     Small runnable examples
+tests/        Package compatibility tests and synthetic acceptance fixtures
+docs/         API, storage and contributor documentation
+packaging/    Package metadata and explicit source/asset inventories
+scripts/      Build, audit and inventory maintenance tools
+```
+
+Public package imports stay stable when internal files move. Apache-2.0; see
+[LICENSE](LICENSE).
