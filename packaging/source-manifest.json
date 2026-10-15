@@ -49,7 +49,7 @@
     {
       "source": "README.md",
       "destination": "README.md",
-      "sha256": "e6c1ec34b1fe11e29da83b4f33cc09feb168aff750d2f7fb34a9dc563cab0ecc"
+      "sha256": "04d4ae4680ceb5a081731c57c285206aa58728817219deafb7ba2be2aa6cc084"
     },
     {
       "source": "schemas/agent-platform/composition-checkpoint-records-v1.sql",
