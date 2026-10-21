@@ -1,28 +1,14 @@
 # Chrema
 
-Chrema is a set of reusable components for **composing agent workflows, observing
-their execution, and retaining the information they produce or use**. Combine
-workflow steps, tools and host-provided executors while keeping a record of what
-ran, which inputs it used, and how results were reviewed or admitted.
+Compose agent workflows without losing the history behind their results.
 
-Your application supplies the workflow definitions, model/provider adapters,
-prompts and policies. Chrema supplies the journals, lifecycle and validation
-components around them; it is not a ready-made chatbot or a hosted service.
+Chrema provides two reusable JavaScript packages: **agent-platform** records workflows, assignments, tool activity and review; **content-ledger** tracks content versions, relationships, usage and delivery decisions. Use either independently, or combine them in your application.
 
-## Two packages, one repository
+You supply the workflow steps, executors, model adapters and policies. Chrema supplies the lifecycle, validation and records around them.
 
-| Package | What it provides |
-| --- | --- |
-| `agent-platform` | Workflow versions, runs, assignments, attempts and events; worker and tool lifecycles; staging, validation, review and admission |
-| `content-ledger` | Content versions and observed usage; relationships and assessments; policy-driven transfer decisions and delivery records |
+## Try it in a minute
 
-Use either package independently, or compose them in your application. They have
-no external npm runtime dependencies and do not import each other. The ledger's
-capture schema expects compatible journal relations supplied by the host.
-
-## Try it without a database
-
-Requires **Node.js 22.12 or later**. From a source checkout:
+Requires Node.js 22.12 or later:
 
 ```sh
 git clone https://github.com/MrScripty/Chrema.git
@@ -30,28 +16,11 @@ cd Chrema
 node examples/memory-workflow.mjs
 ```
 
-The example composes two deterministic text-processing components, records their
-assignments and input/output events, and prints the completed run with its trace.
-It needs no API key, model provider, package installation or database. It retains
-the original input and intermediate results in memory for inspection; that state
-disappears when the process exits. Read the [example](examples/memory-workflow.mjs)
-to see where your own components would plug in.
-
-## When is PostgreSQL needed?
-
-The agent journal supports memory and PostgreSQL. Durable storage and optional
-checkpoint/continuation protocols use PostgreSQL. The content ledger's
-persistence implementation also uses PostgreSQL; its pure validation and identity
-helpers can be used without it. Applications supply the database, driver and
-access policy.
-
-The SQL under `schemas/` defines tables, validation functions and explicit
-upgrades. It is not a database dump. Downloading or installing Chrema does not
-start a database or run those files. See [storage requirements](docs/storage.md).
+The example runs two deterministic text-processing steps and prints their completed run, original input and trace. It needs no package installation, database, API key or model. Its in-memory state disappears when the process exits.
 
 ## Use the packages in an application
 
-There is no npm registry release yet. Build local packages from this checkout:
+There is no npm registry release yet. Build and pack local archives from the checkout:
 
 ```sh
 package_workspace=$(mktemp -d)
@@ -61,31 +30,34 @@ npm pack --offline --ignore-scripts --pack-destination "$package_workspace" "$pa
 npm pack --offline --ignore-scripts --pack-destination "$package_workspace" "$package_workspace/packages/content-ledger"
 ```
 
-Then, from your application's directory, install either or both generated
-archives with `npm install /path/to/agent-platform-0.0.0.tgz` and
-`npm install /path/to/content-ledger-0.0.0.tgz`. The commands above print their
-locations. Import the package entry points, for example:
+Install the archive you need from your application's directory:
+
+```sh
+npm install /path/to/agent-platform-0.0.0.tgz
+# Or: npm install /path/to/content-ledger-0.0.0.tgz
+```
+
+For example:
 
 ```js
 import { createAgentWorkflowJournalFactory } from 'agent-platform/journal';
 import { normalizeContentVersion } from 'content-ledger/capture';
 ```
 
-See the [API guide](docs/api.md) for host contracts and all 31 public entry points,
-and [development](docs/development.md) for tests, package verification and
-PostgreSQL acceptance.
+Both packages have no external npm runtime dependencies and do not import each other. See the [API guide](docs/api.md) for entry points and host contracts.
 
-## Repository layout
+## Add durable storage when you need it
 
-```text
-src/          Agent platform, content ledger and shared implementation modules
-schemas/      PostgreSQL definitions grouped by the two components
-examples/     Small runnable examples
-tests/        Package compatibility tests and synthetic acceptance fixtures
-docs/         API, storage and contributor documentation
-packaging/    Package metadata and explicit source/asset inventories
-scripts/      Build, audit and inventory maintenance tools
+The workflow journal supports memory and PostgreSQL. Durable checkpoints and the content ledger's persistence implementation use PostgreSQL; applications supply the database, driver and access policy. Installing Chrema does not start a database or apply SQL. Read [storage requirements](docs/storage.md) before enabling persistence.
+
+## Develop
+
+```sh
+node scripts/audit.mjs
+node --test tests/*.test.mjs
 ```
 
-Public package imports stay stable when internal files move. Apache-2.0; see
-[LICENSE](LICENSE).
+[Development guide](docs/development.md) covers packaging, explicit source inventories and disposable PostgreSQL acceptance.
+
+[Apache-2.0 License](LICENSE).
+
